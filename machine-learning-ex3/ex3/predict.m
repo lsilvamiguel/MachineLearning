@@ -22,11 +22,23 @@ p = zeros(size(X, 1), 1);
 %
 
 
+% add one column of ones to X
 
+a1 = [ones(m,1), X];
 
+z1 = Theta1*a1';
 
+% resulting a 25 x 5000 matrix
+a2 = sigmoid(z1);
 
+% add one column of ones to a2' and redefine a2
+  a2 = [ones(m,1), a2'];
 
+z2 = Theta2*a2';
+
+a3 = sigmoid(z2);
+
+[i,p]=max(a3',[],2);
 
 
 % =========================================================================
